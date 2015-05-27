@@ -13,8 +13,8 @@ RUN chown -R ${uid}:${gid} ${HOME}
 
 # Install fasd
 RUN \
-  git clone https://github.com/clvv/fasd.git /usr/local/fasd &&\ 
-  ln -s /usr/local/fasd/fasd /usr/bin/fasd
+  sudo git clone https://github.com/clvv/fasd.git /usr/local/fasd &&\ 
+  sudo ln -s /usr/local/fasd/fasd /usr/bin/fasd
 
 # Define default command.
 CMD ["zsh"]
