@@ -2,7 +2,19 @@ FROM fabito/sipsimple:latest
 
 MAINTAINER Fábio Uechi <fabio.uechi@gmail.com>
 
-RUN sudo apt-get install -y git sox python-pip && \
+RUN sudo apt-get install -y git sox zsh python-pip && \
     sudo pip install SpeechRecognition
 
-CMD ["/bin/bash"] 
+# Install oh-my-zhs
+ENV ZSH ${HOME}/.oh-my-zsh
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
+ADD home/ ${HOME}/
+RUN chown -R ${uid}:${gid} ${HOME}
+
+# Install fasd
+RUN \
+  git clone https://github.com/clvv/fasd.git /usr/local/fasd &&\ 
+  ln -s /usr/local/fasd/fasd /usr/bin/fasd
+
+# Define default command.
+CMD ["zsh"]
