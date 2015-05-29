@@ -9,7 +9,7 @@ RUN sudo apt-get install -y git sox flac zsh python-pip python-pyaudio && \
 ENV ZSH ${HOME}/.oh-my-zsh
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
 ADD home/ ${HOME}/
-RUN chown -R ${uid}:${gid} ${HOME}
+RUN sudo chown -R ${uid}:${gid} ${HOME}
 
 # Install fasd
 RUN \
