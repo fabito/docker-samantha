@@ -2,8 +2,8 @@ FROM fabito/sipsimple:latest
 
 MAINTAINER Fábio Uechi <fabio.uechi@gmail.com>
 
-RUN sudo apt-get install -y git sox zsh python-pip && \
-    sudo pip install SpeechRecognition
+RUN sudo apt-get install -y git sox flac zsh python-pip python-pyaudio && \
+    sudo pip install SpeechRecognition 
 
 # Install oh-my-zhs
 ENV ZSH ${HOME}/.oh-my-zsh
