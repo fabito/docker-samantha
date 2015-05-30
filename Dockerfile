@@ -2,7 +2,7 @@ FROM fabito/sipsimple:latest
 
 MAINTAINER Fábio Uechi <fabio.uechi@gmail.com>
 
-RUN sudo apt-get install -y git sox flac zsh python-pip python-dev libffi-dev python-numpy python-pyaudio && \
+RUN sudo apt-get install -y git sox libsox-fmt-mp3 flac zsh python-pip python-dev libffi-dev python-numpy python-pyaudio && \
     sudo pip install SpeechRecognition cffi pysoundfile
 
 # Install oh-my-zhs
